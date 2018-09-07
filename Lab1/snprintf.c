@@ -27,12 +27,22 @@ int main() {
 
 int snprintf(char *dst, size_t buffer_size, const char *format, ...){
     int numchar;
+    va_list arg;
+    va_start(arg, format);
+    while (*format) {
+        if (*format == '%'){
+            format++;
+            //Check for flag
+            //Check for specifier
+            format++;
+        }
+        else {
+            //print character
+            putchar(*format);
+            format++;
+        }
+    }
 
-    //Check for flag
-
-
-    //Check for specifier
-
-
+    va_end(arg);
     return numchar;
 }
