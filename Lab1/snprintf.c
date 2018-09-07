@@ -34,6 +34,19 @@ int snprintf(char *dst, size_t buffer_size, const char *format, ...){
             format++;
             //Check for flag
             //Check for specifier
+            switch (*format){
+                case 's': {
+                    const char *s = va_arg(arg, const char *);
+                    while (*s)
+                        putchar(*s++);
+                    break;
+                }
+                case 'd': {
+                    int d = va_arg(arg, int);
+                    //do something
+                    break;
+                }
+            }
             format++;
         }
         else {
